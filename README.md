@@ -1,309 +1,263 @@
-# ai-journey
-ai应用开发学习
-每日任务卡 · 168 天逐日版（v2.0）
-制定日：2026-11-02 ｜ 起点：2026-11-02（周一，D01） ｜ 终点：2027-04-18（周日，D168）
-目标：24 周内从 Java 后端转型到 AI 应用 / Agent 开发工程师，达到能面试、能上岗、能写简历的水准。
-📌 这份文件是"每天干什么"的唯一权威。CURRICULUM.md 是总览和规则，本文件是逐日执行清单。
-📌 配套：STAGE-PROJECTS.md（8 个阶段项目的体量标准）、FRONTIER.md（技术基线）、progress.md（打卡）。
-零、使用说明（花 2 分钟看完，之后不用再翻）
-每天的固定节奏
-时段
-时长
-干什么
-硬要求
-早间 15 分钟
-15 min
-读当天的"输入"材料
-只读当天那一份，不许囤教程
-白天零碎
-30 min
-通勤/午休：回看昨天的笔记、跑一次昨天的代码
-不学新东西，只保温
-晚间主攻
-90 min
-敲代码，做当天的"交付物"
-必须产出文件，光看不写不算
-收尾 20 分钟
-20 min
-写笔记（3-5 条要点 + 1 个坑）
-这就是你的面试素材库
-打卡 5 分钟
-5 min
-更新 progress.md
-断更 2 天 = 计划死亡
-周末（D6 / D7）节奏不同：4h 项目攻坚 + 1.5h 复盘自测 + 0.5h 前沿扫描。
-每天任务的读法
-每天一张卡，四行信息：
-**输入**（读什么）→ **敲代码**（造什么文件）→ **产出**（交什么文件）→ **验收**（怎么算过了）
-- 验收标准是你自己的判卷标准，不是给别人看的。做完了自己对照一遍，不过就补，别糊弄。
-- 每天卡片末尾的 「15 分钟保底」 是给你累的时候用的。再累也要做保底那一条——保住连续性比做完更重要。
-- 每天有一行 「面试点」，是当天这块知识在面试里怎么问。不用背，但要能答。答不上来就标记下来，周日补。
-三档投入 → 怎么换算
-档位
-工作日
-周末
-实际完成日
-怎么用这份计划
-🔴 冲刺
-4.5h
-8h
-17 周
-每天做 D1-D5 + 周末，砍掉 W14 缓冲周和"复习巩固日"
-🟡 标准（本计划基准）
-2.5h
-6h
-24 周 = 168 天
-照着走，一 day 不落
-🟢 稳健
-1.5h
-4h
-36 周
-每周做 5 天（跳过 D6 或 D7），D1-D5 拖到下周一
-铁律：D1-D5（工作日核心）任何档位都不能跳过。周末的 D6/D7 在稳健档可以只做 D6。
-每天的"最小胜利"文化
-一天 2.5 小时，90 分钟在主攻。这 90 分钟会被打断、会走神、会因为一个 bug 卡半小时。
-所以每张卡都写了「15 分钟保底」——它不是凑数，它是防止计划死亡的安全绳。
-一、168 天全景表
-阶段
-天数
-日期
-主题
-阶段项目交付
-S1 地基
-D01-D14
-11-02 ~ 11-15
-LLM 心智模型 + Python 突击
-SP0 工单分诊服务
-S2 RAG
-D15-D35
-11-16 ~ 12-06
-文档处理 → 混合检索 → 评估闭环
-SP1 知识中枢
-S3 Agent 内核
-D36-D56
-12-07 ~ 12-27
-手写 ReAct → LangGraph → 记忆规划
-SP2 自主 Agent
-S4 MCP / Skills
-D57-D70
-12-28 ~ 01-10
-协议精读 → 写 Server → 安全加固
-SP3 开源 MCP Server
-S5 Java 工程化
-D71-D91
-01-11 ~ 01-31
-Spring AI 2.0.2 → LangChain4j 1.23 → Java 版
-SP4 Java 生产版
-🧧 缓冲
-D92-D98
-02-01 ~ 02-07
-春节：不掉链子就是胜利
-—
-S6 生产化
-D99-D112
-02-08 ~ 02-21
-可观测 → 评估工程化 → 安全稳定
-SP5 企业级平台
-S7 Data Agent
-D113-D126
-02-22 ~ 03-07
-NL2SQL → 语义层 → 产品化
-SP6 NL2SQL Agent
-S8 作品集
-D127-D140
-03-08 ~ 03-21
-README → 视频 → 博客 → 简历 → 开始投递
-SP7 作品集
-S9 面试冲刺
-D141-D154
-03-22 ~ 04-04
-八股 → 手撕 → 系统设计 → 模拟面
-面试手册
-S10 投递冲刺
-D155-D168
-04-05 ~ 04-18
-密集投递 → 复盘补短板 → offer
-—
-S1 · 地基（D01-D14 · 11-02 ~ 11-15）
-这两个周的目标：让你从"听说过 LLM"变成"能独立写出一个带流式、带结构化输出、带重试的 LLM 服务"。
-产出物：bootcamp/ 里的一堆可运行脚本 + 一个能 docker compose up 的服务。
-⚠️ 如果你已经跑过 bootcamp/d01_hello.py 和 d02_structured.py，D01-D03 可以压缩成半天，省出的时间往后挪。
-W1 · LLM 心智模型 + 第一次调用（D01-D07 · 11-02 ~ 11-08）
-D001 · 11-02 周一 · 环境验收 + 搞懂 LLM 在干什么
-输入（早间 15 分钟）
-- 3Blue1Brown《Attention/Transformer 可视化》前 20 分钟（YouTube/B 站）
-- 读 Anthropic《Building effective agents》第 1-2 节（官方 engineering blog，重点是 "workflow vs agent" 的区分）
-敲代码（90 分钟）→ bootcamp/d01_llm_intro.py
-- 用 numpy 手写 softmax + 缩放点积注意力（不 import 任何框架）
-- 输入 3 个词，打印注意力权重矩阵，打印 "模型在第 3 个词上最关注谁"
-- 再手写一个"贪心 next-token 预测"的迷你版：给一句 "今天天气很"，输出最高概率的下一个词（可用一个假词表模拟）
-产出
-- notes/d01.md：5 条笔记。必须包含这 3 条：① LLM 是概率机器不是数据库 ② 为什么会有幻觉（下一个 token 的贪心/采样本质）③ attention 在算什么（一句话）
-验收
-[ ] python bootcamp/d01_llm_intro.py 能跑，输出注意力矩阵
-[ ] 能不看笔记，用 90 秒讲清 "token 序列 → 预测下一个 token → 循环"
-[ ] 知道 context window 是什么，满了会怎样
-面试点：为什么 LLM 会幻觉？temperature 调高会怎样？context window 满了怎么办？
-15 分钟保底：只读 3Blue1Brown 20 分钟，把 notes/d01.md 的 5 条笔记写出来（不写代码）。
-D002 · 11-03 周二 · 算清 token 和钱
-输入（早间 15 分钟）
-- 读一遍目标模型的 token 计价页（DeepSeek 或百炼的定价文档），把单价抄进笔记
-敲代码（90 分钟）→ bootcamp/d02_token_cost.py
-- 用 tiktoken（或目标模型的 tokenizer）分别对：① 一段中文 ② 一段英文 ③ 一段 Java 代码 ④ 一段 JSON，算 token 数
-- 打印一个对比表：同样的意思，中英文 token 数差几倍
-- 写一个函数 estimate_cost(prompt, completion, model)，参数化单价
-- 算三个真实场景：一天 1000 次调用、平均 2000 token 输入 + 500 token 输出，一个月多少钱
-产出
-- notes/d02.md：3 条笔记 + 一张成本表。必须回答："中文是不是比英文贵？差多少？"
-验收
-[ ] 脚本能跑，输出对比表
-[ ] 算出你那个场景的月度成本，数字记在笔记里
-[ ] 知道为什么"本地调试用 4B 小模型 + Ollama，不烧钱调 bug"
-面试点：怎么给一个 LLM 功能估成本？token 成本和功能复杂度是什么关系？
-15 分钟保底：只写 estimate_cost 函数和一张表，tokenizer 那部分明天补。
-D003 · 11-04 周三 · 第一次 API 调用（流式 / 多轮 / 参数）
-输入（早间 15 分钟）
-- 目标模型 API 文档的"对话补全"和"流式"两节（只读这两节）
-敲代码（90 分钟）→ bootcamp/d03_api_call.py
-- 三段式写在一个文件里，用 --mode nonstream|stream|multi 切换：
-  a. 非流式：一次调用拿完整响应
-  b. 流式（SSE）：逐字/逐块打印，体验"打字机效果"
-  c. 多轮：自己维护 messages 数组，连续问 3 轮，第 3 轮问"我刚才说了什么"
-- 调 temperature（0 / 0.7 / 1.5 各跑一次同一个 prompt）和 max_tokens，把 3 个输出贴进笔记做对比
-- 加上超时和重试（指数退避，最多 3 次）
-产出
-- notes/d03.md：3 组输出对比 + 2 条笔记（"temperature 到底改变了什么" / "多轮对话是谁在维护状态"）
-验收
-[ ] 三个 mode 都能跑
-[ ] 亲手看到 temperature=1.5 的输出明显更散
-[ ] 知道"messages 数组由客户端维护"这件事
-面试点：API 是无状态的，那多轮对话是怎么实现的？流式有什么实际价值（除了好看）？
-15 分钟保底：只做非流式 + 一组 temperature 对比。
-D004 · 11-05 周四 · 结构化输出（让模型听话）
-输入（早间 15 分钟）
-- Pydantic v2 官方文档的 "Models / Validators / JSON Schema" 三节
-敲代码（90 分钟）→ bootcamp/d04_structured.py
-- 定义 Pydantic 模型 ResumeInfo{name, years_of_experience: int, skills: list[str], projects: list[str]}
-- 三种方式对比：① 直接要 JSON ② JSON mode ③ Pydantic + 校验
-- 写失败重试：校验不过就把错误信息喂回模型，最多重试 2 次
-- 造 3 个"脏输入"（缺字段、类型不对、额外废话），看你的代码怎么处理
-- 打印 model_json_schema()，看看生成的 JSON Schema 长什么样
-产出
-- notes/d04.md：3 条笔记（为什么不能只靠 prompt / JSON mode 和 schema 校验的区别 / 校验失败该重试还是该报错）
-验收
-[ ] 脏输入全部被拦住，没有脏数据漏出去
-[ ] 重试逻辑生效（故意让它第一次输出坏的）
-[ ] 能解释 model_json_schema() 有什么用
-面试点：怎么保证 LLM 输出能被程序消费？校验失败怎么办？
-15 分钟保底：定义 Pydantic 模型 + 三种方式各跑一次。
-D005 · 11-06 周五 · Prompt 工程 + 建立测试用例思维
-输入（早间 15 分钟）
-- 读 Anthropic 那篇 prompt engineering 指南（或 OpenAI 的官方 cookbook 对应章节）
-敲代码（90 分钟）→ bootcamp/d05_prompt_eval.py
-- 把 D04 的简历解析器改造成可测试的：run_prompt(prompt_version, text) -> dict
-- 写 20 条测试用例（10 正常 + 5 边界 + 5 恶意），存成 bootcamp/data/resume_cases.jsonl
-- 跑一遍，统计通过率（脚本自己输出"通过 12/20"这种）
-- 然后优化 prompt（加 few-shot 示例、明确边界、约束输出），再跑一遍
-产出
-- notes/d05.md：记录 prompt v1 通过 12/20 → v2 通过 19/20 这个过程和改了什么
-- bootcamp/data/resume_cases.jsonl：20 条用例（后面所有项目都用这个格式）
-验收
-[ ] 有真实的"改前/改后"两个数字
-[ ] 20 条用例里至少 3 条是故意刁难的
-[ ] 这个"通过率从 X 提到 Y"的数字，这就是你面试里最值钱的一句话
-面试点：你怎么知道 prompt 改动是有效的？怎么防止改好一个坏三个？
-15 分钟保底：只写 20 条测试用例（不写代码），这是最重要的资产。
-D006 · 11-07 周六 · 周末攻坚：把脚本变成服务
-- 输入：无新材料——直接动手，用到时再查文档（今天以产出为主）
-今日主题：从"能跑的脚本"到"能用的服务"
-敲代码（4h）→ bootcamp/llm-service/
-- 用 FastAPI 包一层：POST /parse（解析简历）、GET /health
-- 加 SSE 流式端点 POST /parse/stream
-- 加统一错误处理：参数校验失败 → 400；模型超时 → 504；上游 429 → 503 + Retry-After
-- 加 结构化日志（每次请求记：trace_id / 耗时 / token 数 / 是否重试）
-- 写 Dockerfile + docker-compose.yml（app + 一个 mock 上游）
-产出
-- bootcamp/llm-service/README.md：架构图（ASCII 就行）+ 怎么跑 + 3 个 curl 示例
-验收
-[ ] docker compose up 之后 curl 能通
-[ ] 故意让上游超时，返回 504 而不是 500 堆栈
-[ ] 日志里有 trace_id 能串起一次请求
-面试点：FastAPI 为什么快？async 里调同步库会怎样？超时怎么分级？
-15 分钟保底：只写 Dockerfile 和 docker-compose.yml。
-D007 · 11-08 周日 · 周复盘 + 知识固化
-- 输入：无新材料——读本周自己的笔记 + 前一天的产出代码（复习优先于学新东西）
-时间分配：项目攻坚 2h + 复盘自测 2h + 前沿扫描 0.5h + 休息 1.5h
-复盘自测（2h）
-1. 跑一遍本周所有脚本，确认都能跑（python bootcamp/d0*.py）
-2. 不看笔记，回答本周 5 个面试点，写在纸上 → 答不上的用红笔标
-3. 把 notes/d01.md ~ d05.md 合并成 notes/W1_知识地图.md（一页纸，30 行以内）
-4. 填 progress.md 的本周自检（6 条）
-敲代码（2h 项目攻坚，详见下方「项目攻坚」段）
-项目攻坚（2h）
-- 给 llm-service 补一个 pytest 测试（至少 3 个用例：正常 / 脏输入 / 超时）
-- 把 20 条测试用例接进 CI（GitHub Actions，.github/workflows/test.yml）
-前沿扫描（0.5h）
-- 扫 FRONTIER.md 第二节的版本表，看看这周有没有变化
-- 查 1 个 AI 工程周刊，只找"被正式命名的新实践"（比如 context engineering 这种）
-- 有变化 → 追加到 FRONTIER.md 第五节；没变化 → 写"无变化"
-验收
-[ ] pytest 能跑，CI 配置在仓库里
-[ ] W1 知识地图写完（一页纸）
-[ ] 5 个面试点答不上的，记进欠账区
-面试点：本周 5 个面试点（见上方「复盘自测」第 2 条）——不看的题就是你的面试事故
-15 分钟保底：只做"5 个面试点自测"并标红。
-W2 · Python 突击（D08-D14 · 11-09 ~ 11-15）
-目标：达到"能读懂、能改、能自己写 500 行服务"的程度。不求精通 Python，求能干活。
-⚠️ 这周会难受，因为 Python 没有 Spring 那套脚手架。熬过去，后面全是顺风。
-D008 · 11-09 周一 · 类型系统 + Pydantic v2
-输入：Python 官方 typing 文档 + Pydantic v2 "Strict Mode / Validators" 节
-敲代码（90 分钟）→ bootcamp/d08_typing_pydantic.py
-- 类型注解：list[str] / Optional[X] / TypedDict / Literal / Annotated
-- dataclass vs BaseModel 的区别（各写一个同样的类，对比）
-- Pydantic v2：Field 约束、field_validator、model_validator（跨字段）、model_config
-- Strict 模式：model_config = ConfigDict(strict=True)，看它怎么拦住 "25" 这种字符串年龄
-产出：notes/d08.md —— 3 条笔记 + 一张"Java 语法 → Python 语法"对照表（这是你后面每天都要用的）
-验收：
-[ ] 写出 2 个自定义 validator，其中 1 个是跨字段的
-[ ] strict 模式成功拦住一次类型转换
-[ ] 对照表里有 ≥ 15 条 Java→Python 映射
-面试点：Java 的 Jackson 和 Pydantic 在校验时机上有什么区别？Python 为什么是"运行时类型检查"？
-15 分钟保底：只写 Java→Python 对照表（15 条）。
-D009 · 11-10 周二 · asyncio（JD 明确点名要会）
-输入：Python asyncio 官方文档的 "Coroutines / Task / Synchronization Primitives" 三节
-敲代码（90 分钟）→ bootcamp/d09_asyncio.py
-- async/await 基本写法，asyncio.run 的作用
-- asyncio.gather 并发多个调用，打印总耗时 vs 串行耗时（必须有明显差距）
-- Semaphore 限流：并发调 10 次但最多同时 3 次
-- wait_for 超时、TaskGroup（3.11+）或 gather(return_exceptions=True) 处理异常
-- 反例实验：在 async 函数里调一个同步的 time.sleep(2)，观察整个程序被卡住
-产出：notes/d09.md —— 3 条笔记（含"async 里调同步库的后果"）
-验收：
-[ ] 并发耗时明显小于串行耗时（数字记下来）
-[ ] 限流生效（同一时刻不超过 3 个在跑）
-[ ] 反例实验跑出来，这是面试高频题的现场证据
-面试点：asyncio 的事件循环是什么？为什么 async 里写 requests.get 会卡住所有人？
-15 分钟保底：只写 gather 对比实验。
-D010 · 11-11 周三 · FastAPI 全家桶
-输入：FastAPI 官方教程的 "Request Body / Dependencies / SSE / Exception Handling" 四节
-敲代码（90 分钟）→ bootcamp/d10_fastapi.py
-- 路由 + 依赖注入（Depends）+ 请求/响应模型（Pydantic）
-- SSE 流式：StreamingResponse + text/event-stream，前端能逐字收到
-- 中间件：加一个 X-Request-ID 头 + 耗时头
-- 全局异常处理器：把 HTTPException 和未捕获异常统一成 JSON
-- 用 httpx.AsyncClient 写一个客户端测试脚本
-产出：notes/d10.md —— 3 条笔记（依赖注入怎么工作 / SSE 的报文长什么样 / 异常处理为什么要全局统一）
-验收：
-[ ] SSE 端点用 curl 能看到增量输出
-[ ] 每个响应都有 request-id
-[ ] 客户端脚本能跑通
-面试点：FastAPI 的依赖注入和 Spring 的 DI 有什么本质区别？
-15 分钟保底：只写一个带 SSE 的端点 + curl 验证。
-D011 · 11-12 周四 · 可靠性四件套（重试/超时/限流/熔断）
-输入：读一遍 tenacity 官方 README 的 "Retrying" 节
-敲代码（90 分钟）→ bootcamp/d11_reliability.py
-- httpx.AsyncClient + 连接池配置（max_connections / timeout 分级：connect/read/write/pool）
-- tenacity 重试：指数退避 + 抖动（jitter）+ retry_if_exception_type
-- 只对可重试错误重试（429/5xx/超时），4xx 业务错误直接抛
-- 简单熔断：连续 N 次失败就短路，直接返回降级结果
-- 把这套加到 D10 的 FastAPI 服务上
+# 前沿雷达 · 技术基线 v1.1
+
+> 快照时间：**2026-11-02** ｜ 下次强制刷新：**2026-12-27**（每月一次）
+>
+> 这份文件解决一个问题：AI 领域每周都在变，但**你的学习计划不能每周推倒重来**。  
+> 所以分两层：**稳定的底层（不用追）** 和 **流动的上层（必须追）**。
+>
+> v1.1 变更摘要：**LangChain4j 版本纠偏（1.19.0 → 1.23.0）**、Spring AI 2.1.0 仍为 RC 未 GA、
+> 新增「记忆/技能持久化投毒」威胁模型、MCP 工具错误二分法与幂等性要求、JDK 28 Value Class 风险提示。
+
+---
+
+## 一、先建立一个判断力：什么值得追，什么不用追
+
+| 层级      | 内容                                                        | 变化速度     | 你的策略                     |
+| ------- | --------------------------------------------------------- | -------- | ------------------------ |
+| **不变层** | 上下文工程思想、RAG 检索原理、Agent 循环范式、评估方法论、生产可靠性（限流/幂等/降级/审计）、成本意识 | 3-5 年不变  | **死磕，这是护城河**             |
+| **协议层** | MCP、A2A、Agent Skills                                      | 半年一次大版本  | **吃透当前版本 + 关注设计意图**，别背细节 |
+| **框架层** | LangGraph、Spring AI、LangChain4j、AgentScope                | 3-6 个月一次 | **学一个深、其余能读**，别做框架收藏家    |
+| **模型层** | GPT / Claude / Gemini / Qwen / DeepSeek / GLM             | 每 1-3 个月 | **只记能力边界和价格量级**，不记榜单     |
+| **工具层** | 各种 agent 产品、IDE 插件、低代码平台                                  | 每周       | **基本不追**，需要时再看           |
+
+> 一句话：**追不完的别追。你的竞争力在"不变层"，不在"知道最新模型叫什么"。**
+
+---
+
+## 二、2026-11 技术基线（当前必须知道的版本与事实）
+
+### 2.1 协议与标准
+
+| 项目               | 当前状态                                                              | 关键点                                                                                                                                                                                                                                                                                                                                     |
+| ---------------- | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **MCP**          | **2026-07-28 版本 GA**                                              | ① **无状态化**：去掉 initialize 握手和 `Mcp-Session-Id`，协议版本/客户端能力移入每请求 metadata，list 端点可缓存<br />② **MRTR（多轮往返请求）**：工具可返回 `resultType: "input_required"`，客户端带 `inputResponses` 重试 → **协议级人工审批原语**<br />③ `tasks` 扩展（长任务）、拒绝正式弃用 **DCR**（改用 Client ID Metadata Documents）<br />④ 强制 **RFC 9207 issuer 校验**（修授权服务器混淆漏洞）<br />⑤ 新增扩展框架（服务器渲染 UI、长任务） |
+| **MCP 治理**       | Linux 基金会下的 **Agentic AI Foundation（AAIF）**                       | Anthropic + OpenAI + Block 共同创立                                                                                                                                                                                                                                                                                                         |
+| **Agent Skills** | **2026-10-22 捐赠给 AAIF，成为中立标准**                                    | 2026-10-23 MCP TS SDK 2.4.0 支持 `loadSkills(folder)` / `skills.attach(server)`（SEP-2640）；70+ 平台已接入（ChatGPT / Cursor / Copilot / VS Code）；已发布约 100 万个 skill、2.8 亿次安装                                                                                                                                                                      |
+| **A2A**          | Agent 互联协议，Java 侧有官方实现                                            | 多 Agent 跨组织协作场景才用得到，优先级低于 MCP                                                                                                                                                                                                                                                                                                           |
+| **MCP 安全现状**     | ⚠️ 某安全厂商扫描 **33,563** 个 server 构建：**49% 存在安全问题，36% 命中至少 1 条高危规则** | 主要问题：工具描述里的提示注入、网络暴露、来源不明。有 `mcpscore` 这类审计工具（72 条规则 / 0-100 分）                                                                                                                                                                                                                                                                         |
+
+### 2.2 Java 侧工具链（你的主战场）
+
+| 项目                    | 版本                    | 说明                                                                       |
+| --------------------- | --------------------- | ------------------------------------------------------------------------ |
+| **Spring AI**         | **2.0.2 GA**（最新正式版）| 2.1.0-RC1（2026-10-23）**尚未转 GA**，GA 目标 11 月；2.1.0-M1 已升 Spring Boot **4.2** |
+| **LangChain4j**       | **1.23.0（2026-10-30）** | Java 8+；`AiServices` 声明式；1.21+ 引入 Decision Models / Guardrails / tool selection（`@Experimental`）；1.22 加 Anthropic 自动 prompt caching；1.23 强化 agentic patterns（MCP client 已按 2026-07-28 spec 实现） |
+| **Spring AI Alibaba** | 1.1.2                 | ⚠️ 基于 Spring AI 1.1.2 + Boot 3.5.x，**尚未跟进 Spring AI 2.0 / Boot 4**（选型陷阱） |
+| **AgentScope Java**   | 2.0.0 GA（2026-07）     | 多 Agent；模型容错、事件流、多租户、Workspace 隔离                                        |
+| **MCP Java SDK**      | 2.0.0 GA              | Spring 团队维护                                                              |
+| **Google ADK Java**   | 迭代中                   | 绑 Vertex AI + A2A                                                        |
+| **Jlama**             | 迭代中                   | 纯 JVM 跑 GGUF，不需要 Python 运行时                                              |
+| **Solon AI**          | 3.5.x+                | 轻量、非框架绑定、Java 8~26                                                       |
+
+> ⚠️ **版本号使用纪律**：Maven 上 `langchain4j` 坐标已迁移到 `org.langchain4j`（旧的 `dev.langchain4j` 坐标在 Maven Central 显示的最新版本停在 1.19.x，与实际 1.23.0 不一致——**不要用旧坐标查版本，会被误导**）。
+> 查权威版本用：`curl -s https://repo1.maven.org/maven2/dev/langchain4j/langchain4j-bom/maven-metadata.xml | tail -20`（BOM 的 `lastUpdated` 字段最准）。
+
+### 2.3 Python 侧（你必须能读能写）
+
+| 项目                       | 说明                                                                           |
+| ------------------------ | ---------------------------------------------------------------------------- |
+| **LangGraph**            | Agent 编排事实标准：StateGraph / checkpointer / interrupt（HITL）/ 子图                 |
+| **LangChain**            | 生态大而全，但 2026 年建议"读得懂、少依赖"                                                    |
+| **LlamaIndex**           | 文档/RAG 场景强                                                                   |
+| **FastMCP**              | 写 MCP Server 最快的方式                                                           |
+| **Ragas**                | RAG 四指标：faithfulness / answer_relevancy / context_precision / context_recall |
+| **PromptFoo**            | Prompt 回归测试 + CI 集成（评估进流水线的首选）                                               |
+| **LangFuse / LangSmith** | 可观测：trace 树、会话回放、成本统计                                                        |
+| **vLLM / SGLang**        | 推理加速（PagedAttention、continuous batching）                                     |
+
+### 2.4 模型层（只记量级，别背榜单）
+
+| 模型                | 特征（2026-10 视角）                                                              |
+| ----------------- | --------------------------------------------------------------------------- |
+| Qwen3.8-Max       | 2.4T 参数 / 95B 激活 / 1M 上下文                                                   |
+| DeepSeek-V4-Flash | 284B MoE / 13B 激活 / 1M 上下文 / **MIT 开源**（2026-07-31）；有可配置 `reasoning_effort` |
+| Gemini 3.7 Flash  | 价格约为上代一半；端到端成本大幅下降                                                          |
+| GLM-5.3           | 开源权重，编码能力有跃升                                                                |
+
+**给你的实用结论**：国内开发用 **Qwen / DeepSeek 的 OpenAI 兼容端点**最省事；做成本对比实验时至少跑 3 个模型；**本地调试用 4B 小模型 + Ollama**，别用大模型烧钱调 bug。
+
+### 2.5 今年被正式命名的工程实践（要学会的"行话"）
+
+按对开发流程的影响排序，这些是面试里能体现你"在圈内"的词：
+
+1. **上下文工程（Context Engineering）** —— 已取代 prompt engineering 成为主流框架。核心：**稀缺资源不是指令质量，是窗口空间**。每个工具定义、每次文件读取、每段子 Agent 记录，都会在后续每次请求中计费。真正的功夫是决定"什么不进上下文"。
+2. **Agent Skills** —— 把流程性知识打包成可加载的文件夹（`SKILL.md` + 脚本 + 参考文件），**渐进式加载**，而不是把说明书贴进 prompt。
+3. **MCP Server** —— 让 Agent 触达它看不到的系统。
+4. **Subagent 委派** —— 把探索性阅读推进子上下文，保持主上下文干净。
+5. **验证闸门（Verification Gates）** —— 让 Agent 必须"证明改动有效"才能报完成（hooks + 测试）。
+6. **Spec-driven development** —— 把规格当主产物，代码当可再生产物。
+
+### 2.6 ⚠️ 2026-11 新增威胁模型：持久化投毒（Memory / Skills Poisoning）
+
+**这是本次基线刷新最重要的新增项，直接影响 W10 和 W16。**
+
+Pydantic AI 2.64（2026-10-30）新增 `ArtifactScanner`，官方给出的理由值得整段引用：
+
+> 记忆文件和 skills 是**持久化**的，因此某次运行里植入的指令**会在后续的运行中继续生效**。
+> 而现有护栏只看得到 prompt、tool call 和 output —— **看不见已经落盘的 skill 或记忆**。
+
+对应的还有 ADK Python 的一个 bug 修复（2026-10-31，尚未发正式版）：把模型**隐藏推理（thoughts）写进记忆**，导致模型把自己上一轮的"内心戏"当成事实检索回来。
+
+**⇒ 对你的直接影响（W10 / W16 要动手做的）：**
+
+| 风险 | 防护动作 |
+|---|---|
+| 恶意 skill 替换 | skill 目录入库前扫描；catalog 里保留被拒 skill 的**名字但不含内容**，防止未扫描的同名副本顶替 |
+| 记忆投毒 | 写入记忆前扫描指令型内容；**禁止把模型 reasoning 当记忆存**；记忆检索时标注来源与可信度 |
+| skill / 记忆被投毒后长期生效 | 落盘内容必须有**来源标记 + 版本 + 写入时间**，可审计可回滚 |
+
+> 💡 **这条是你的加分项**。面试时能说出"我们防的不只是提示注入，还有**持久化投毒**——因为 skill 和记忆是落盘的，一次投毒会长期生效"，说明你跟上了 2026-11 的威胁模型，不是停留在 OWASP LLM Top 10 的旧清单。
+> 建议写进 W16 的安全章节，README 里贴一句「记忆/skill 写入前扫描，来源可审计」。
+
+### 2.7 MCP 生产细节补充（面试高频，实操必会）
+
+从 2026 年 Q4 社区实践里提炼出的几条，都不是 spec 原文但**是你的 Server 能不能用的关键**：
+
+| 细节 | 做法 | 为什么 |
+|---|---|---|
+| **工具错误二分法** | 协议错误（未知工具、schema 不符）→ JSON-RPC error；**工具执行错误 → `isError: true` 的正常返回** | 后者会把错误信息交回模型，模型能自我纠正；前者是硬错误，模型无法恢复 |
+| **错误文案要带下一步** | 不要返回 `"404"`，返回 `"没有 id=p_99 的订单。先调 list_orders 查可用 id"` | 模型读到错误才知道怎么接着做 |
+| **写操作幂等** | 接受 `idempotencyKey`，存结果，重复 key 返回原结果 | 无状态传输下流断了客户端会重发请求，没幂等就会重复写 |
+| **工具按意图设计，不按 REST 端点镜像** | 一个工具干一个用户意图（`find_overdue_invoices(customer, min_days)`），而不是把 `get_customer`+`get_accounts`+`get_invoices` 三个都暴露 | 链式调用时模型错选率高、token 消耗大 |
+| **读写分离 + 标注 hint** | 写工具标 `destructiveHint`，读工具标 `readOnlyHint` | 让宿主知道哪些需要额外确认 |
+| **返回 `resource_link` 而非全文** | 大结果返回链接，让客户端按需取 | 避免一次性撑爆上下文 |
+| **Origin 头校验** | 防 DNS rebinding | Streamable HTTP 必做 |
+
+### 2.8 JDK 版本风险提示（Java 侧的隐藏坑）
+
+JDK 27.0.1.0.3 已 GA（2026-10-24），JDK 28 进入 EA（Build 21）。
+
+⚠️ **JDK 28 的 JEP 401 Value Objects 是预览特性，但影响面极大**：开启 preview 后，**30 个 JDK 核心类**（8 个包装类、Record、4 个 Optional、16 个时间类含 `LocalDate`/`Instant`）会变成值对象，行为变化包括：
+- `==` 从引用比较变成字段逐一比较（两个独立创建的相同 `LocalDate`，`==` 从 false 变 true）
+- 值对象失去内在 monitor，`synchronized` / `wait()` 抛 `IdentityException`
+- `WeakHashMap` 拒绝值对象
+- 反射改私有字段抛 `IllegalAccessException`
+
+**⇒ 对你的影响**：本计划全程用 **JDK 21**（LTS，Spring AI 2.0 / Boot 4 基线兼容），**不要为了"用最新"升 JDK 28 preview**。但这件事本身是个很好的面试谈资——说明你关注 JVM 生态且知道"新特性不等于该立刻用"。
+
+
+### 2.9 两个反直觉但极其重要的成本事实
+
+> 面试时说出这两条，对方会立刻知道你"真跑过"。
+
+1. **MCP 不一定比 CLI 便宜**：实测同一任务，MCP 消耗 **4-32 倍** token（MCP server 把所有工具 schema 塞进 session prefix，且每次变动都会让 **prompt cache 失效**）。→ 工具超过 40 个时，客户端甚至可能不再把工具暴露给模型。
+2. **反思/多轮自检成本翻倍**：每加一层 Reflexion，token 就翻一倍。**"准确率提升 5% 花掉 3 倍成本"经常是亏的**——要学会算这笔账。 
+
+---
+
+## 三、更新机制（怎么做到"实时跟新"）
+
+### 3.1 每周日 30 分钟：轻扫描（只做记录，不改计划）
+
+按顺序扫这 4 个地方，只记"有没有影响我当前阶段的东西"：
+
+| 来源                                                            | 看什么                   |
+| ------------------------------------------------------------- | --------------------- |
+| `modelcontextprotocol.io` 的 spec 变更日志                         | MCP 是否又出新版本、有没有破坏性变更  |
+| LangGraph / Spring AI / LangChain4j 的 GitHub Release          | 你正在用的框架有没有大版本         |
+| 1 个 AI 工程周刊（如 AI Native Engineering / Ben's Bites / 张小珺 / 宝玉） | 本周有没有"新命名的实践"         |
+| 你目标岗位的 JD（每周抓 5 条新 JD）                                        | **市场要什么变了没有** ← 这条最重要 |
+
+**输出**：在 `FRONTIER.md` 底部「动态记录」追加 1-3 行。**没东西就写"无变化"。**
+
+### 3.2 每月最后一个周日：强制刷新（可以改计划）
+
+- [ ] 更新本文件第二部分的版本表
+- [ ] 判断是否需要调整 `CURRICULUM.md`（**只有两种情况允许改**：① 你正在学的框架出现破坏性变更 ② 目标岗位的 JD 出现了你计划里完全没覆盖的硬要求）
+- [ ] 版本号 +0.1，底下写变更说明
+- [ ] 抓 10 条目标岗位 JD，把高频新词记到「JD 关键词池」
+
+### 3.3 硬约束：防止自己被新东西带跑
+
+> **计划周期内，任何"要不要加学 XXX"的判断，先过这三问：**
+>
+> 1. 它是我目标 JD 里出现过的词吗？（不是 → 记下来，不学）
+> 2. 不学它，我下周的交付物做不出来吗？（不是 → 不学）
+> 3. 它是"不变层"还是"流动层"？（流动层 → 知道它存在就够了）
+>
+> 三问全过才动。**否则你会在第 6 周开始学一个第 20 周已经过时的东西。**
+
+---
+
+## 四、JD 关键词池（每周抓新 JD 后往里加）
+
+出现 ≥ 3 次就必须在你的简历/项目里体现：
+
+- Agent 核心循环（感知-思考-行动-观察）
+- 工具机制设计与实现 / Function Calling
+- 任务规划与拆解
+- **上下文生命周期管理**
+- 权限与扩展机制
+- 数据持久化 / 工作隔离策略
+- 多 Agent 协作架构
+- **MCP / MCP Server 开发**
+- **RAG / 向量检索 / 混合搜索**
+- **Prompt 工程 / 上下文工程 / Skills 工程 / Harness 工程**
+- LangChain / LangGraph / LlamaIndex
+- Spring AI / SpringBoot / SpringCloud / 微服务
+- 高并发 / 限流 / 熔断 / 缓存 / 消息队列
+- vLLM / SGLang / llama.cpp / 推理加速
+- 模型调用监控 / 成本控制 / **质量评估机制**
+- LangFuse / LangSmith / PromptFoo
+- Docker / K8s / CI-CD
+- 全栈能力（React / Vue）
+
+---
+
+## 五、动态记录（每周日追加，append-only）
+
+### 2026-10-29 · v1.0 建立基线
+
+- 建立 2026-10 技术基线快照
+- 关键判断：Java 侧工具链已全部 GA，转型不需要放弃 Java
+- 关键判断：主项目走 NL2SQL / Data Agent，利用数据开发背景做差异化
+- 已发生的重大变更：MCP 2026-07-28 spec GA（无状态 + MRTR）；Agent Skills 2026-10-22 捐赠给 AAIF
+
+### 2026-10-29 · 周扫描（记录级，不改计划）
+
+- Spring AI 2.1.0-RC1（10-23，GA 目标 11 月）：`@Tool(requiresConfirmation = true)` 工具级人工确认 + Session Memory（追加式事件日志 + 按轮压缩、不切断 tool_call 与结果）；ChatMemory 系自 2.1 弃用、3.0 移除；依赖升至 MCP Java SDK 2.1.0 → **W11 开工前按 2.1 写，别学 ChatMemory**
+- LangGraph 1.2（10-27）：节点级 `timeout` + `error_handler` 可直接路由到恢复节点、SIGTERM 优雅停机存可续 checkpoint；`create_react_agent` 已弃用 → `langchain.agents.create_agent`（middleware）→ 影响 W7 写法与 W16 稳定性验收
+- MCP：spec 无新版本（仍 2026-07-28）；reference servers 升 v2.0.0「modern era」（新老客户端双兼容），Tasks & Events 升 WG、Agents 降为兴趣组 → W9 读 spec 不变，SDK 走 2.0+
+- JD 新高频：① 熟练使用 Claude Code/Codex 且懂 Skill/MCP 扩展 ② 评估系统 + 质量与成本可观测体系 ③ 多用户隔离的自主规划 Agent（①②已在 W10/W15/W16 覆盖）
+
+### 2026-11-01 · 周扫描（记录级，不改计划）
+
+- LangGraph **1.2.19（10-30，patch）**：1.2.17 修掉「显式 `recursion_limit` 等于默认值时被丢弃」——死循环保护曾静默跑到 9999 步；1.2.18 起 `error_handler` 全路径可恢复、被 recursion limit / `interrupt_after` 停掉的 run 会流回最后一个 checkpoint；**`DeltaChannel` 的 `snapshot_frequency` 默认 1000→100（行为变更，长线程读更快但更占存储，回退传 1000）** → 命中 **W6 轮次保护 / W7 checkpointer / W16 稳定性验收**，写代码按 1.2.19 起
+- **基线纠错**：LangChain4j 已到 **1.22.0（10-08）**，不是上表的 1.19.0。1.21 引入 Decision Models / `RoutingChatModel` / RAG re-ranking / tool selection / guardrails（均 `@Experimental`），1.22 加 OpenAI Decisions API + Anthropic 自动 prompt caching → **W12 开工时版本号改 1.22，任务内容不变**
+- **Agent Skills 有了首个公开大厂 skill 栈**：MiniMax 10-28 开源 **MCode Stack**（17 个 SKILL.md + 5 清单，MIT），把 harness engineering 落成可执行检查项——`context-tax-audit` 把「工具定义成本」和「工具结果成本」分开算；`tool-budget-audit`；`independent-review` 只给 reviewer diff+需求+测试结果、不给作者对话 → **W10 写 skill 时直接抄这套分类，不是必须学**
+- **方向性提示（少 subagent）**：AAIF 侧明确倾向把 router/planner 折进主循环、用 skills 做特化，别铺多 agent 网 → **W7 D4 判断标准改为默认单 agent + skills，只在上下文是实测瓶颈时才上多 agent**
+- MCP：spec 仍 **2026-07-28**，本周无新版本、无破坏性变更；Spring AI Alibaba 本周无发布
+- JD：国内「资深 AI Agent 开发工程师」（30-60k）把「上下文工程」列为核心职责，并新增「步数 / token / 墙钟 / 调用数 **四重硬上限**」「checkpoint 须工作区文件与会话历史**原子回滚**」→ W8 / W15 / W16 已覆盖，不改计划
+
+### 2026-11-02 · 基线强制刷新 v1.0 → v1.1（计划起点当天）
+
+> 本次刷新方法：三处权威源交叉验证（Maven Central `maven-metadata.xml` 的 `lastUpdated` 时间戳 + 官方 GitHub Releases + 协议官方文档），不用二手博客的版本号。
+
+**版本纠偏（重要，影响 W11/W12 写法）**
+
+| 项目 | 旧基线 | 权威实测 | 处理 |
+|---|---|---|---|
+| **LangChain4j** | 1.19.0 | **1.23.0（2026-10-30）** | W12 版本号改 1.23.0；1.21+ 的 Decision Models / Guardrails 可作为"进阶了解"，**不作为必学**（`@Experimental`） |
+| **Spring AI** | 2.0.0 GA | **2.0.2 GA（最新正式版）**；**2.1.0-RC1 未转 GA** | W11 用 2.0.2 起步；2.1.0 正式版出了再切（重点是别把 RC 当 GA 用） |
+| **MCP spec** | 2026-07-28 | **2026-07-28（仍最新）** | 不变；`ping` / `logging/setLevel` / `notifications/roots/list_changed` 已**移除**（非弃用），Roots/Sampling/Logging 走 12 个月弃用窗口，**最早 2027-07-28 之后才可能移除** |
+
+**新增前沿（已写入第 2.6 / 2.7 / 2.8 节）**
+
+- ⚠️ **持久化投毒（Memory / Skills Poisoning）** —— Pydantic AI 2.64（10-30）新增 `ArtifactScanner`，官方理由：记忆与 skill 落盘，**一次投毒长期生效**，而现有护栏看不见已落盘内容；ADK Python 同期修复"把模型隐藏 reasoning 写进记忆"的 bug → **W10 写 skill 时加扫描步骤，W16 安全章节加这一条，并写进 README**
+- **MCP 生产细节 7 条**（错误二分法 / 错误文案带下一步 / 写操作幂等 / 工具按意图设计 / 读写分离 hint / `resource_link` / Origin 校验）→ **W9-W10 直接照做，这是"能跑"和"能用"的分界**
+- **JDK 28 Value Objects 风险** → 全程用 JDK 21 LTS；此事本身是面试谈资
+
+**JD 侧变化（11-01 抓取）**
+
+- 「Agent 开发工程师」（国聘，15-20K·13薪，北京）职责里明确写了：任务拆解、流程编排、工具调用、多轮对话、**结果评估**、异常处理、**人工审核节点** → 命中 W7/W8/W16，不改计划
+- 「Agent 应用开发工程师」（苏州，13万/年）要求：LangChain/LangGraph、**ReAct 范式**、**Function Call**、**上下文压缩**、RAG 知识库构建与优化、**Agent 评测方案设计**；加分项含**本地大模型部署/微调降低显存** → 命中 W6/W8/W15/W13 选修
+- 「AI 原生全栈工程师」（南京）要求：本体建模、Agent 智能体模块、**Skill 能力与可复用组件沉淀**、效果评测与可靠性验证 → 命中 W10/W15
+- 海外岗（Applied AI Engineer）把 **"评估数据集 + 成功阈值 + 评估进 CI/CD"** 列为必备而非加分 → **这坐实了 W15 是分水岭的判断**
+- 薪资现实校准：国内 Agent 开发工程师集中在 **13-20K 区间**（社招 1-5 年）；资深档 30-60K 需要 3 年+ AI 经验 → **转型首份平薪或涨 10-20% 是合理预期**（与原判断一致）
+
+**结论：24 周结构不动。** 本次刷新只改版本号引用（W11/W12）、给 W10/W16 增补安全项、给 W9-W10 增补 MCP 生产细节。**无结构性变更。**
+
+
+---
+
+*格式：`### YYYY-MM-DD · 一句话结论` 换行 `- 具体变化 / 对我的影响`*
